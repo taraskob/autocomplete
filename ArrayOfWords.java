@@ -1,6 +1,8 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Random;
+
 class ArrayOfWords {
     public static void main(String[] args) {
 
@@ -27,10 +29,11 @@ class ArrayOfWords {
         }
         return al;
     }
-    static void writeErr(String filename, Collection ks) {
+    static void writeErr(String inputWord,String filename, Collection ks) {
         FileWriter writer = null;
         try {
             writer = new FileWriter(filename);
+            writer.write("words starting with "+"\""+inputWord +"\""+ "\r\n");
             for (Object str : ks) {
                 writer.write(str + "\r\n");
             }
@@ -38,5 +41,12 @@ class ArrayOfWords {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    static String getWord() {
+        ArrayList<String> al=AutoComplete.words_array;
+        Random rnd = new Random();
+        int word_index = rnd.nextInt(al.size());
+        String inputWord=al.get(word_index).substring(0,rnd.nextInt(al.get(word_index).length()-1)+1);
+    return inputWord;
     }
 }
