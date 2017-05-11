@@ -8,6 +8,7 @@ class AutoComplete {
     static String inputWord = ArrayOfWords.getWord();
 
     public static void main(String[] args) {
+        inputWord ="aba";
         long startTime = System.currentTimeMillis();
         getWords(inputWord);
         long timeSpent = System.currentTimeMillis();
@@ -98,6 +99,7 @@ class AutoComplete {
                         ind_al.set(ind_al_index, words_array.indexOf(word));
                 }
         }
+
         return ind_al;
     }
 
